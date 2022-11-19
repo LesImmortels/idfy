@@ -7,12 +7,18 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom"
+import Generate from './screens/generate';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home/>,
   },
+  {
+    path: "generate/:id",
+    element: <Generate/>,
+  }
+  
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -14,6 +14,9 @@ export default function Home() {
                     IDFY. Create, paste, generate
                 </div>
                 <Search/>
+                <p className="text-xs font-light text-red-500 pt-2"> 
+                    MassartBlocks are unique and available for 2 years.
+                </p>
             </div>
             <Card/>
         </div>
