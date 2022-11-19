@@ -14,53 +14,6 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 function App() {
-  const [userPrompt, setUserPrompt] = useState("")
-  const [imageUrl, setImageUrl] = useState("")
-
-  const generateImage = async () => {
-    const imageParameters = {
-      prompt: userPrompt,
-      n: 1,
-      size: "256x256",
-    }
-    const response = await openai.createImage(imageParameters);
-    const urlData = response.data.data[0].url
-    console.log(urlData);
-    setImageUrl(urlData);
-    //downloadImage()
-  }
-  const [url, setUrl] = useState(imageUrl);
-  const [fileExt, setFileExt] = useState("png");
-  const ref = useRef(null);
-
-  useEffect(() => {
-    qrCode.append(ref.current);
-  }, []);
-
-  useEffect(() => {
-    qrCode.update({
-      data: url
-    });
-  }, [url]);
-
-  const onUrlChange = (event) => {
-    event.preventDefault();
-    setUrl(event.target.value);
-  };
-
-  const onExtensionChange = (event) => {
-    setFileExt(event.target.value);
-  };
-
-  const onDownloadClick = () => {
-    qrCode.download({
-      extension: fileExt
-    });
-  };
-
-  //qrCode.append(document.getElementById("canvas"));
-  //qrCode.download({ name: "qr", extension: "svg" });
-
   return (
     <div className="App">
       {
