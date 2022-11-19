@@ -1,7 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./style.css";
-import QRCodeStyling from "qr-code-styling";
+import {wordlist} from "./wordlist.js";
+import QRCodeStyling, {
+  DrawType,
+  TypeNumber,
+  Mode,
+  ErrorCorrectionLevel,
+  DotType,
+  CornerSquareType,
+  CornerDotType,
+  Extension,
+  Options
+} from "qr-code-styling";
 
+
+const seedrandom = require("seedrandom");
 
 const { Configuration, OpenAIApi } = require("openai");
 
@@ -10,7 +23,6 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-
 
 
 export default function App() {
@@ -41,6 +53,16 @@ export default function App() {
   let hasloaded = true;
   let urlData = "";
 
+  const generateWords = (hash) => {
+      const rng = seedrandom(hash);
+
+      const random_word = () => wordlist[Math.floor(wordlist.length * rng())];
+      let words = [];
+      for (let i = 0; i < 30; ++i)
+        words.push(random_word());
+      return words.join(" ");
+  }
+
   const generateImage = async () => {
     const imageParameters = {
       prompt: userPrompt,
@@ -66,7 +88,8 @@ export default function App() {
   }, [qrCode, options]);
 
   const onGenerateClick = async () => {
-    userPrompt = "away balance left object delay parent crucial quarter security afraid physical appear kit trim welcome impact father hold art coin win ignore fashion furnace";
+    userPrompt = generateWords("Hell");
+      console.log(userPrompt);
     await generateImage();
 
     setOptions(options => ({
