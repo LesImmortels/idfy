@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Search() {
     return (
-        <form className="max-w-md text-sm font-normal ">
+        <form className="max-w-lg text-sm font-normal ">
             <div className="relative">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
