@@ -27,30 +27,39 @@ function App() {
     const urlData = response.data.data[0].url
     console.log(urlData);
     setImageUrl(urlData);
+    //downloadImage()
   }
+  const [url, setUrl] = useState(imageUrl);
+  const [fileExt, setFileExt] = useState("png");
+  const ref = useRef(null);
 
+  useEffect(() => {
+    qrCode.append(ref.current);
+  }, []);
 
-    const qrCode = new QRCodeStyling({
-        width: 300,
-        height: 300,
-        type: "svg",
-        data: userPrompt,
-        image: "https://fr.wikipedia.org/wiki/Caribou_des_bois#/media/Fichier:Caribou.jpg",//imageUrl,
-        dotsOptions: {
-            color: "#4267b2",
-            type: "rounded"
-        },
-        backgroundOptions: {
-            color: "#e9ebee",
-        },
-        imageOptions: {
-            crossOrigin: "anonymous",
-            margin: 20
-        }
+  useEffect(() => {
+    qrCode.update({
+      data: url
     });
+  }, [url]);
 
-    //qrCode.append(document.getElementById("canvas"));
-    //qrCode.download({ name: "qr", extension: "svg" });
+  const onUrlChange = (event) => {
+    event.preventDefault();
+    setUrl(event.target.value);
+  };
+
+  const onExtensionChange = (event) => {
+    setFileExt(event.target.value);
+  };
+
+  const onDownloadClick = () => {
+    qrCode.download({
+      extension: fileExt
+    });
+  };
+
+  //qrCode.append(document.getElementById("canvas"));
+  //qrCode.download({ name: "qr", extension: "svg" });
 
   return (
     <div className="App">
