@@ -60,7 +60,7 @@ export default function Generate() {
                       </div>
                     </div>
                       <button class="bg-transparent font-light hover:bg-blue-500 text-blue-2–00 hover:text-white py-0.5 px-4 border border-blue-500 hover:border-transparent rounded">
-                        Choose
+                        Start Bid
                       </button>
                   </div>
                 </div>

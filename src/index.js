@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import QR from './components/qr';
 import './index.css';
 import Home from "./screens/home"
 import {
@@ -9,6 +8,8 @@ import {
   Route,
 } from "react-router-dom"
 import Generate from './screens/generate';
+import Navbar from "./components/Navbar";
+
 
 const router = createBrowserRouter([
   {
@@ -25,8 +26,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Navbar/>
     <RouterProvider router={router}/>
-    <Home/>
-    <QR></QR>
   </React.StrictMode>
 );

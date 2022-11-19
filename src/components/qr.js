@@ -1,16 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./style.css";
-import QRCodeStyling, {
-  DrawType,
-  TypeNumber,
-  Mode,
-  ErrorCorrectionLevel,
-  DotType,
-  CornerSquareType,
-  CornerDotType,
-  Extension,
-  Options
-} from "qr-code-styling";
+import QRCodeStyling from "qr-code-styling";
 
 
 const { Configuration, OpenAIApi } = require("openai");

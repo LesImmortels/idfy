@@ -14,8 +14,6 @@ export default function Search() {
         navigate(`/generate/${search}`);
     }
 
-
-
     return (
         <form className="max-w-lg text-sm font-normal " onSubmit={handleSubmit} >
             <div className="relative">
