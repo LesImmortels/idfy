@@ -1,8 +1,21 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Search() {
+
+    // Handle search input
+    const [search, setSearch] = React.useState("");
+    const navigate = useNavigate();
+    
+
+    // Go to link on enter
+    function handleSubmit(event) {        
+        navigate(`/generate/${search}`);
+    }
+
     return (
-        <form className="max-w-lg text-sm font-normal ">
+        <form className="max-w-lg text-sm font-normal " onSubmit={handleSubmit} >
             <div className="relative">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -22,6 +35,8 @@ export default function Search() {
                     type="text"
                     placeholder="Generate art from wallet address"
                     className="w-full py-3 pl-12 pr-4 text-gray-500 border border-pink-100 border-opacity-5 rounded-md outline-none bg-gray-50 bg-opacity-5 focus:border-red-500"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
                 />
             </div>
         </form>

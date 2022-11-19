@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import QR from './components/qr';
 import './index.css';
 import Home from "./screens/home"
 import {
@@ -11,6 +10,9 @@ import {
 import Browse from './screens/browse';
 import Auction from './screens/auction';
 import Example from './screens/test';
+import Generate from './screens/generate';
+import Navbar from "./components/navbar";
+
 
 const router = createBrowserRouter([
   {
@@ -24,12 +26,19 @@ const router = createBrowserRouter([
   {
     path: "browse/:productId",
     element: <Auction />,
+  },
+  {
+    path: "generate/:id",
+    element: <Generate/>,
   }
+  
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <Navbar/>
+    <RouterProvider router={router}/>
   </React.StrictMode>
 );
