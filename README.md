@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# IDFY
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+En apprenant que dans le monde de la cryptomonaie et de la blockchain, le seul moyen de se partager un wallet était d'envoyer une très longue chaine de charactères au destinataire, nous avons voulu faciliter ce processus. Sachant aussi qu'un site qui affichait une addresse wallet sur laquelle certaines personnes étaient censé envoyé de l'argent c'était fait hacker et que personne ne s'était rendu compte que l'addresse du wallet avait changé avant un certain temps, nous avont eut l'idée de créer IDFY.
 
-In the project directory, you can run:
+IDFY est un site permettant de créer des QRcodes sécurisés afin de partager de manière simple et efficace l'addresse de son wallet.
 
-### `npm start`
+Notre QR code se présenterait de manière simple avec une image autogénérée au centre, qui permettrait à l'utilisateur de comparer l'image qu'on lui a envoyé avec celle présente sur le site lorsqu'on lui envoie l'addresse.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Comment ?
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Utilisateurs quotidiens
 
-### `npm test`
+Nous proposons a chaque utilisateur de la blockchainm d'aller sur notre site, et d'y rentrer leur addresse de Wallet, ainsi que de payer les "frais de génération".Ensuite, nous produisons un hash a partir de cette addresse. Afin d'eviter que deux addresses proches génèrent la même image.
+Une fois ce hash récupéré, nous utilisons un mnemonic pour générer une suite de mots aléatoire (mais basés sur l'addresse).\
+Une fois cette suite de mots générée. Nous l'utilisons pour générer une image avec la technologie d'OpenAi. Cette image est ensuite mise aux enchères 24h. Pendant ces 24h, n'importe qui, qui serait intéressé par l'image est en mesure d'enchérir.
+Au bout de ces 24h, l'image est associée pour une durée d'un an avec l'adresse de la personne qui a remporté l'enchère. Et cette personne peut utiliser le QR code généré pour s'identifier ou transmettre son addresse.\
+Au bout d'un an, l'utilisateur a la possibilité dans un premier temps de renouveler son image afin qu'elle reste associée a son addresse. Dans le cas échéant, l'image sera alors remise aux enchères pour 24h et le cycle recommence.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Entreprises
 
-### `npm run build`
+Pour les entreprises, le principe reste relativement similaire, a l'exception près que nous leur proposons d'altérer la génération de l'image dans un premier temps,afin d'avoir quelque chose qui colle avec leur identité de marque. En échange de frais de génération plus élevés. Ensuite, nous leur proposons de passer outre la première enchère. Ce qui leur permet de conserver l'image tant qu'ils décident de la renouveler. Dans le cas ou une entreprise déciderait de ne pas renouveler son image, elle passerait alors aux enchères publiques pendant 24h comme n'importe laquelle des autres.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Business Canva
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Business Canva](./Buisiness_Canva.png)
