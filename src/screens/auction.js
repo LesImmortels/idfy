@@ -11,7 +11,6 @@ export default function Auction() {
 
     return (
         <div>
-            <Navbar />
             <div className="fixed z-10 overflow-y-auto">
                 <div className="flex justify-center text-center px-4">
                     <div className="relative flex w-full items-center overflow-hidden  px-4 pt-14 pb-8 shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">

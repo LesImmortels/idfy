@@ -74,7 +74,6 @@ export const products = [
 export default function Browse() {
     return (
         <>
-            <Navbar />
             <div className="bg-white">
                 <div className="mx-auto max-w-10xl py-16 px-8">
                     <h2 className="sr-only">Products</h2>
